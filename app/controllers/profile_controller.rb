@@ -17,7 +17,21 @@ class ProfileController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to(profile_path)
+      redirect_to(profile_path(user))
+    else
+      render :edit
+    end
+  end
+
+  def import
+    if params[:code].nil?
+      redirect_to(BPNet::LinkedIn::Client.new.auth_code_url)
+      return
+    end
+    api = BPNet::LinkedIn::Client.new(params[:code])
+    @user = current_user
+    if @user.update_attributes(api.profile)
+      redirect_to(profile_path(@user))
     else
       render :edit
     end

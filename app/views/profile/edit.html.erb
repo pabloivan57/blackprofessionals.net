@@ -1,47 +1,47 @@
 <div class='container'>
 	<div class='row clearfix'>
       <div class="col-md-12 column">
-  
+
 	    <div class='col-md-offset-2 row profile'>
-          <div class='col-md-2'> 
+          <div class='col-md-2'>
               <img src="http://placehold.it/150x150" class='profile-picture'>
               <div style='text-align: center; margin-top: 5%'>
-               <%= link_to 'Import from Linkedin', edit_profile_path(@user), class: 'btn btn-default' %>
+               <%= link_to 'Import from Linkedin', import_profile_index_path, class: 'btn btn-default' %>
              </div>
            </div>
           <div class='col-md-8 profile-form'>
             <%= form_for(@user, url: profile_path(@user)) do |f| %>
-              <div class="form-group">        
-                <%= f.label :first_name %>           
+              <div class="form-group">
+                <%= f.label :first_name %>
                 <%= f.text_field :first_name, autofocus: true, :class => "form-control" %>
               </div>
-              <div class="form-group">        
-                <%= f.label :last_name %>           
+              <div class="form-group">
+                <%= f.label :last_name %>
                 <%= f.text_field :last_name, :class => "form-control" %>
               </div>
-              <div class="form-group">        
-                <%= f.label :industry %>           
+              <div class="form-group">
+                <%= f.label :industry %>
                 <%= f.text_field :industry, :class => "form-control" %>
               </div>
-              <div class="form-group">        
-                <%= f.label :job_title %>           
+              <div class="form-group">
+                <%= f.label :job_title %>
                 <%= f.text_field :job_title, :class => "form-control" %>
               </div>
-              <div class="form-group">        
-                <%= f.label :country %>           
+              <div class="form-group">
+                <%= f.label :country %>
                 <%= f.text_field :country, :class => "form-control" %>
               </div>
-              <div class="form-group">        
-                <%= f.label :zip_code %>           
+              <div class="form-group">
+                <%= f.label :zip_code %>
                 <%= f.text_field :zip_code, :class => "form-control" %>
               </div>
-              <br/>  
+              <br/>
                 <%= link_to 'Reset', edit_profile_path(@user), class: 'btn btn-default' %>
                 <%= link_to 'Cancel', profile_path(@user), class: 'btn btn-default' %>
                 <%= f.submit "Submit" , :class => "btn btn-primary" %>
 
-             <% end %>    
-        </div>	
+             <% end %>
+        </div>
       </div>
 	</div>
 </div>

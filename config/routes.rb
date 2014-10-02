@@ -6,7 +6,13 @@ Blackprofessionals::Application.routes.draw do
 
   get '/comments' => 'comments#index'
 
-  resources :profile
+  resources :profile do
+    collection do
+      get 'import'
+    end
+  end
+
+  get 'linkedin/oauth2', to: 'profile#import'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
