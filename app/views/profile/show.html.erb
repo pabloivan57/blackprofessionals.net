@@ -4,7 +4,11 @@
 
 	    <div class='col-md-offset-2 row profile'>
           <div class='col-md-2'>
-            <img src="http://placehold.it/150x150">
+            <% if @user.profile_image_url %>
+              <%= image_tag(@user.profile_image_url, alt: 'Profile Image') %>
+            <% else %>
+              <img src="http://placehold.it/150x150">
+            <% end %>
           </div>
           <div class='col-md-8'>
             <div class=' profile-title clearfix'>
