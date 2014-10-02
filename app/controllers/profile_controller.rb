@@ -17,7 +17,7 @@ class ProfileController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to(profile_path(user))
+      redirect_to(profile_path(@user))
     else
       render :edit
     end
