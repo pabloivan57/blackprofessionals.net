@@ -38,15 +38,35 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+
+
 group :test, :development do
+  gem 'rspec-core', '2.14.7'
+  gem 'rspec-rails', '~> 2.14.1'
   gem 'pry', '~> 0.9.12'
   gem 'pry-rails', '~> 0.3.2'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
 end
+
+group :test do
+  gem 'capybara', '~> 2.2.1'
+  gem "capybara-webkit", "~> 1.0.0"
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'webmock', '~> 1.17.1'
+  gem 'vcr'
+  gem 'rspec-sidekiq'
+  gem "timecop", "~> 0.6.3"
+  gem 'capybara-email'
+end
+
 
 gem 'rails_12factor', group: :production
 
 
-# Use ActiveModel has_secure_password
+
+# Use ActiveMode>el has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
