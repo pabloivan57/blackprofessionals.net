@@ -25,13 +25,13 @@ module BPNet
             instance_variable_set("@#{jaccard_field}", index || 0.0)
           end
 
-          this_user_values = @user.public_send(field_name).split
-          other_user_values = other_user.public_send(field_name).split
+          this_user_values = @user.public_send(field_name).nil? ? [] : @user.public_send(field_name).split
+          other_user_values = other_user.public_send(field_name).nil? ? [] : other_user.public_send(field_name).split
 
           intersection = (this_user_values & other_user_values).count
           union = (this_user_values | other_user_values).count
-          jaccard_value = (intersection.to_d / union.to_d) * RECOMMENDATION_WEIGHTS[field_name]
-          other_user.send("#{jaccard_field}=", jaccard_value) rescue 0.0
+          jaccard_value = (intersection.to_d / union.to_d) * RECOMMENDATION_WEIGHTS[field_name] rescue 0.0
+          other_user.send("#{jaccard_field}=", jaccard_value)
 
           other_user
         end
@@ -41,9 +41,8 @@ module BPNet
         recommend_by_field(:job_title)
         recommend_by_field(:industry)
         recommend_by_field(:location)
-
-        @users = @users.reject do |u|
-          u.job_title_jaccard_index == 0 && u.industry_jaccard_index == 0 && u.location_jaccard_index == 0
+        @users.reject! do |u|
+          u.job_title_jaccard_index == 0 || u.industry_jaccard_index == 0 || u.location_jaccard_index == 0
         end
 
         @users.each do
