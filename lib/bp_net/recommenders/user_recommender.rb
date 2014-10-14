@@ -41,6 +41,11 @@ module BPNet
         recommend_by_field(:job_title)
         recommend_by_field(:industry)
         recommend_by_field(:location)
+
+        @users = @users.reject do |u|
+          u.job_title_jaccard_index == 0 && u.industry_jaccard_index == 0 && u.location_jaccard_index == 0
+        end
+
         @users.each do
           |u| u.jaccard_total =  u.job_title_jaccard_index + u.industry_jaccard_index + u.location_jaccard_index
         end.sort_by { |u| u.jaccard_total }.reverse

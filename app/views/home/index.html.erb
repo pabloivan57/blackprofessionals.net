@@ -56,19 +56,34 @@
    
       </div>
       <div class="col-md-4 column">
-        <div class=' profile-title clearfix'>
-              <div style='float: left; font-weight: bold; font-size: 250%'>
-                            	
+        <h2>Recommended Users</h2>
+
+        <% if @recommendations.empty? %>
+          <p class= 'no-recommendations'> There are no recommendations for you at this moment </p>
+        <% else %>
+          <% @recommendations.each do |r| %>
+            <div class= 'row'>
+              <div class= 'recommendation-image col-md-4'>
+                <% if r.profile_image_url %>
+                  <%= image_tag(r.profile_image_url, alt: 'Profile Image') %>
+                <% else %>
+                  <img src="http://placehold.it/100x100">
+                <% end %>
               </div>
-              <div style='float: left; margin-left: 2% '>
-              </div>             	 
+
+              <div class= 'col-md-8'>
+                <p class='recommendation-title'>
+                  <%= r.first_name %> <%= r.last_name %>
+                </p>
+                <p class= 'recommendation-description'>
+                  <%= r.job_title %> at <%= r.industry %>
+                </p>
+                <%= link_to "Connect", '#', class: 'btn btn-default' %>
+              </div>
             </div>
             <br/>
-            <div>
-            </div>
-            <br/>
-            <div>
-            </div>   
+      <% end %>
+        <% end %>
       </div>
 	</div>
 </div>
