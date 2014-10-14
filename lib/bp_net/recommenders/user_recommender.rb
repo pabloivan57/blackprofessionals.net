@@ -42,7 +42,7 @@ module BPNet
         recommend_by_field(:industry)
         recommend_by_field(:location)
         @users.reject! do |u|
-          u.job_title_jaccard_index == 0 || u.industry_jaccard_index == 0 || u.location_jaccard_index == 0
+          u.job_title_jaccard_index == 0 && u.industry_jaccard_index == 0 && u.location_jaccard_index == 0
         end
 
         @users.each do
