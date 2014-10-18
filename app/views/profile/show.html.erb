@@ -13,10 +13,13 @@
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Messages</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">Settings</a></li>
-        <% if user_signed_in? %>
+        <!-- <li><a href="#">Messages</a></li> -->
+        <!-- --><li><a href="#"> <img src="../../assets/message.png"></li></a><!-- -->
+        <!-- <li><a href="#">Notifications</a></li> -->
+        <!-- --><li><a href="#"> <img src="../../assets/notifications.png"></li></a><!-- -->
+        <!-- <li><a href="#">Settings</a></li> -->
+        <!-- --><li><a href="#"> <img src="../../assets/settings.png"></li></a><!-- -->
+	<% if user_signed_in? %>
             <li>
               <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
             </li>
@@ -52,7 +55,8 @@
             <% if @user.profile_image_url %>
               <%= image_tag(@user.profile_image_url, alt: 'Profile Image') %>
             <% else %>
-              <img src="http://placehold.it/150x150">
+              <!--<img src="http://placehold.it/150x150">-->
+	      <img src="../../assets/generic_avatar.png">
             <% end %>
           </div>
           <div class='col-md-8'>

@@ -13,9 +13,12 @@
         </div>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Messages</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">Settings</a></li>
+	<!-- <li><a href="#">Messages</a></li> -->
+        <!-- --><li><a href="#"> <img src="../../assets/message.png"></li></a><!-- -->
+        <!-- <li><a href="#">Notifications</a></li> -->
+        <!-- --><li><a href="#"> <img src="../../assets/notifications.png"></li></a><!-- -->
+        <!-- <li><a href="#">Settings</a></li> -->
+        <!-- --><li><a href="#"> <img src="../../assets/settings.png"></li></a><!-- -->
         <% if user_signed_in? %>
   	      <li>
   		    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
