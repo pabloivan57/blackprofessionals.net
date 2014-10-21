@@ -1,55 +1,11 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">BP.Net</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group" style="width: 400px !important;">
-          <input type="text" class="form-control" style="width: 100%" placeholder="Search">
-        </div>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Messages</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">Settings</a></li>
-        <% if user_signed_in? %>
-            <li>
-              <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-            </li>
-        <% else %>
-            <li>
-              <%= link_to('Login', new_user_session_path)  %>
-            </li>
-        <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-<div id="navcontainer">
-  <ul id="navlist">
-    <li><%= link_to 'Home',root_path %></li>
-    <li>|</li>
-    <li id='active'><%= link_to 'Profile', profile_index_path %> </li>
-    <li>|</li>
-    <li><a href="#">Jobs</a></li>
-    <li>|</li>
-    <li><a href="#">Connections</a></li>
-    <li>|</li>
-    <li><a href="#">Interests</a></li>
-  </ul>
-</div>
-
 <div class='container'>
 	<div class='row clearfix'>
       <div class="col-md-12 column">
   
 	    <div class='col-md-offset-2 row profile'>
           <div class='col-md-2'> 
-            <img src="http://placehold.it/150x150">
+            <!--<img src="http://placehold.it/150x150">-->
+	    <img src="../../assets/generic_avatar.png">
           </div>
           <div class='col-md-8'>
             <div class=' profile-title clearfix'>
