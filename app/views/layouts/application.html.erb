@@ -36,9 +36,9 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"> <img src="../../assets/message.png"></li></a>
-        <li><a href="#"> <img src="../../assets/notifications.png"></li></a>
-        <li><a href="#"> <img src="../../assets/settings.png"></li></a>
+        <li><a href="#"><%= image_tag("message.png", alt: 'Message') %></a></li>
+        <li><a href="#"><%= image_tag("notifications.png", alt: 'Notifications')%></a></li>
+        <li><a href="#"><%= image_tag("settings.png", alt: 'Settings')%></a></li>
 <% end %>
         <% if user_signed_in? %>
             <li>

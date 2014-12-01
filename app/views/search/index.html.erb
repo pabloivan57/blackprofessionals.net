@@ -39,7 +39,7 @@
                 <% if r.profile_image_url %>
                   <%= image_tag(r.profile_image_url, alt: 'Profile Image') %>
                 <% else %>
-                  <img src="../../assets/generic_avatar.png">
+                  <%= image_tag("generic_avatar.png", alt: 'Generic Avatar') %>
                 <% end %>
               </div>
 
@@ -94,8 +94,6 @@
       <% end %>
         <% end %>
       </div>
-
-
     </div>
   </div>
 </div>

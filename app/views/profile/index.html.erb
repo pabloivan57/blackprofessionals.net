@@ -1,20 +1,19 @@
 <div class='container'>
 	<div class='row clearfix'>
       <div class="col-md-12 column">
-  
+
 	    <div class='col-md-offset-2 row profile'>
-          <div class='col-md-2'> 
-            <!--<img src="http://placehold.it/150x150">-->
-	    <img src="../../assets/generic_avatar.png">
+          <div class='col-md-2'>
+	        <%= image_tag("generic_avatar.png", alt: 'Generic Avatar') %>
           </div>
           <div class='col-md-8'>
             <div class=' profile-title clearfix'>
               <div style='float: left; font-weight: bold; font-size: 250%'>
-                <%= @user.first_name %> <%= @user.last_name %>            	
+                <%= @user.first_name %> <%= @user.last_name %>
               </div>
               <div style='float: left; margin-left: 2% '>
                 <%= link_to 'Edit', edit_profile_path(@user), class: 'btn btn-warning' %>
-              </div>             	 
+              </div>
             </div>
             <br/>
             <div>
@@ -23,9 +22,9 @@
             <br/>
             <div>
                <%= @user.country %>
-            </div>   
+            </div>
           </div>
-	    </div>	
+	    </div>
       </div>
 	</div>
 </div>
