@@ -45,6 +45,7 @@ class ProfileController < ApplicationController
                                  :industry,
                                  :job_title,
                                  :country,
+                                 :state,
                                  :zip_code)
   end
 end

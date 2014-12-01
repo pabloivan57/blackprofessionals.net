@@ -14,6 +14,8 @@ Blackprofessionals::Application.routes.draw do
 
   get 'linkedin/oauth2', to: 'profile#import'
 
+  resources :search, only: [:index, :new, :create]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
