@@ -1,0 +1,101 @@
+<div class='container'>
+	<div class='row clearfix'>
+      <div class="col-md-12 column">
+        <div class="jumbotron">
+				<h1 class='main-title'>
+					BlackProfessionals.Net
+        </h1>
+      </div>
+
+      <div class="col-md-3">
+      <%= form_tag  search_index_path do %>
+        <div class='form-group'>
+          <%= label_tag :first_name %>
+          <%= text_field_tag :first_name, nil, class: 'form-control' %><br/>
+        </div>
+        <div class='form-group'>
+          <%= label_tag :last_name %>
+          <%= text_field_tag :last_name, nil, class: 'form-control' %>
+        </div>
+        <div class='form-group'>
+          <%= label_tag :job_title, 'Title' %>
+          <%= text_field_tag :job_title, nil, class: 'form-control' %>
+        </div>
+        <div class='form-group'>
+          <%= label_tag :industry, 'Company'%>
+          <%= text_field_tag :industry, nil, class: 'form-control' %>
+        </div>
+        <%= submit_tag "Search", class: 'btn btn-default' %>
+      <% end %>
+      </div>
+
+      <!------------ SEARCH RESULTS -----------------!>
+      <div id="search_results" class="col-md-5 column">
+
+        <% if @results.present? %>
+          <% @results.each do |r| %>
+            <div class= 'row result'>
+              <div class= 'recommendation-image col-md-2'>
+                <% if r.profile_image_url %>
+                  <%= image_tag(r.profile_image_url, alt: 'Profile Image') %>
+                <% else %>
+                  <img src="../../assets/generic_avatar.png">
+                <% end %>
+              </div>
+
+              <div class= 'col-md-8 search-description'>
+                <p style= 'float: right'>
+                  <%= link_to "Connect", '#', class: 'btn btn-default' %>
+                </p>
+                <p class='recommendation-title'>
+                  <%= r.first_name %> <%= r.last_name %>
+                </p>
+                <p class= 'recommendation-description'>
+                <%= r.job_title %>
+                </p>
+                <p class= 'recommendation-despription'>
+                <%= r.state %>,<%= r.country%>. <%= r.industry%>
+                </p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <!---- RECOMENDATION USERS ----!>
+
+      <div class="col-md-4 column">
+        <h2>Recommended Users</h2>
+
+        <% if @recommendations.empty? %>
+          <p class= 'no-recommendations'> There are no recommendations for you at this moment </p>
+        <% else %>
+          <% @recommendations.each do |r| %>
+            <div class= 'row'>
+              <div class= 'recommendation-image col-md-4'>
+                <% if r.profile_image_url %>
+                  <%= image_tag(r.profile_image_url, alt: 'Profile Image') %>
+                <% else %>
+                  <img src="../../assets/generic_avatar.png">
+                <% end %>
+              </div>
+
+              <div class= 'col-md-8'>
+                <p class='recommendation-title'>
+                  <%= r.first_name %> <%= r.last_name %>
+                </p>
+                <p class= 'recommendation-description'>
+                  <%= r.job_title %> at <%= r.industry %>
+                </p>
+                <%= link_to "Connect", '#', class: 'btn btn-default' %>
+              </div>
+            </div>
+            <br/>
+      <% end %>
+        <% end %>
+      </div>
+
+
+    </div>
+  </div>
+</div>
