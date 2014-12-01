@@ -1,6 +1,6 @@
 $(function() {
   disableSearchButton();
-  $('input[type="text"]').change(function(){
+  $('.search_field').change(function(){
    if(isAllInputEmpty()){
     disableSearchButton();
    } else {
@@ -10,11 +10,11 @@ $(function() {
 })
 
 function disableSearchButton(){
-  $('input[type="submit"]').attr('disabled','disabled');
+  $('.search_button').attr('disabled','disabled');
 }
 
 function enableSearchButton(){
-  $('input[type="submit"]').removeAttr('disabled');
+  $('.search_button').removeAttr('disabled');
 }
 
 function isAllInputEmpty(){

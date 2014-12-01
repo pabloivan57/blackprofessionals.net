@@ -11,21 +11,21 @@
       <%= form_tag  search_index_path do %>
         <div class='form-group'>
           <%= label_tag :first_name %>
-          <%= text_field_tag :first_name, nil, class: 'form-control' %><br/>
+          <%= text_field_tag :first_name, nil, class: 'form-control search_field' %><br/>
         </div>
         <div class='form-group'>
           <%= label_tag :last_name %>
-          <%= text_field_tag :last_name, nil, class: 'form-control' %>
+          <%= text_field_tag :last_name, nil, class: 'form-control search_field' %>
         </div>
         <div class='form-group'>
           <%= label_tag :job_title, 'Title' %>
-          <%= text_field_tag :job_title, nil, class: 'form-control' %>
+          <%= text_field_tag :job_title, nil, class: 'form-control search_field' %>
         </div>
         <div class='form-group'>
           <%= label_tag :industry, 'Company'%>
-          <%= text_field_tag :industry, nil, class: 'form-control' %>
+          <%= text_field_tag :industry, nil, class: 'form-control search_field' %>
         </div>
-        <%= submit_tag "Search", class: 'btn btn-default' %>
+        <%= submit_tag "Search", class: 'btn btn-default search_button' %>
       <% end %>
       </div>
 
