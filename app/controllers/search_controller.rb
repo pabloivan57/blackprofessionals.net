@@ -6,7 +6,7 @@ class SearchController < ApplicationController
   end
 
   def create
-    @results = BPNet::Search::User.new(params).find
+    @results = BPNet::Search::SearchEngine.new('individuals', params).find
     render :index
   end
 
