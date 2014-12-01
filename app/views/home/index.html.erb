@@ -5,14 +5,14 @@
 				<h1 class='main-title'>
 					BlackProfessionals.Net
 				</h1>
-		</div> 
+		</div>
       </div>
       <div class="col-md-8 column">
-   
+
       </div>
       <div class="col-md-4 column">
         <h2>Recommended Users</h2>
-
+        <hr/>
         <% if @recommendations.empty? %>
           <p class= 'no-recommendations'> There are no recommendations for you at this moment </p>
         <% else %>
@@ -20,9 +20,10 @@
             <div class= 'row'>
               <div class= 'recommendation-image col-md-4'>
                 <% if r.profile_image_url %>
+
                   <%= image_tag(r.profile_image_url, alt: 'Profile Image') %>
                 <% else %>
-                  <img src="http://placehold.it/100x100">
+                  <img src="../../assets/generic_avatar.png">
                 <% end %>
               </div>
 
@@ -37,7 +38,7 @@
               </div>
             </div>
             <br/>
-      <% end %>
+        <% end %>
         <% end %>
       </div>
 	</div>
