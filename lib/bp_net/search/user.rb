@@ -3,7 +3,7 @@ module BPNet
     class User
 
       def initialize(attributes)
-        @attributes = attributes.slice(:first_name, :last_name, :job_title).reject { |k ,v| v.blank? }
+        @attributes = attributes.slice(:first_name, :last_name, :job_title, :industry).reject { |k ,v| v.blank? }
       end
 
       def find
