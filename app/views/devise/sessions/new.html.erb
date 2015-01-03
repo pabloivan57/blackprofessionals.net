@@ -8,13 +8,13 @@
       	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group" role="username">
 	<div class="nav_bar_label">
-        	<%= f.label :email,{:style=>'margin-bottom: 0px'} %><br>
+        	<%= f.label :email,{:style=>'margin-bottom: 0px; font-size: 13px'} %><br>
         	<%= f.email_field :email, autofocus: true, class: 'form-control' %>
 	</div>
         </div>
         <div class="form-group" role="password">
 	<div class="nav_bar_label">
-        <%= f.label :password,{:style=>'margin-bottom: 0px'} %>
+        <%= f.label :password,{:style=>'margin-bottom: 0px; font-size: 13px'} %>
         <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
 		<%= link_to "Forgot password?", new_password_path(resource_name),{:style=>'font-size: 10px; margin-left: 20px'} %><br>
 	<% end -%>
